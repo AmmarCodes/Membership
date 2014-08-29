@@ -16,7 +16,6 @@ gulp.task('styles', function () {
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles'))
         .pipe($.size())
-        .pipe($.notify("Compilation complete."))
         .pipe(livereload({ auto: false }));
 });
 
