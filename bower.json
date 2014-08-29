@@ -1,0 +1,11 @@
+{
+  "name": "membership",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass-official": "*",
+
+    "modernizr": "~2.6.2",
+    "jquery": "~1.11.0"
+  },
+  "devDependencies": {}
+}
