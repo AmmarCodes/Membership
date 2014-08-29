@@ -3,15 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>@yield('title', Config::get('custom.title'))</title>
-	<meta name="description" content="">
+	<meta name="description" content="{{ Config::get('custom.description') }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	@yield('meta')
 
-	<link rel="stylesheet" href="/assets/css/main.css">
+	{{ HTML::style('/assets/css/main.css') }}
 
 	@yield('header')
 
 	<!--[if lt IE 10]>
-	<script src="/assets/js/modernizr.js"></script>
+	{{ HTML::script('/assets/js/modernizr.js') }}
 	<![endif]-->
 </head>
 <body>
@@ -35,8 +36,9 @@
 		</div>
 	</div>
 
-	<script src="/assets/js/jquery.min.js"></script>
-	<script src="/assets/js/bootstrap.min.js"></script>
+	{{ HTML::script('/assets/js/jquery.min.js') }}
+	{{ HTML::script('/assets/js/bootstrap.min.js') }}
+
 	@yield('footer')
 </body>
 </html>
