@@ -35,7 +35,12 @@ class MembersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// @TODO add validation
+		$member = new Member();
+		$member->name = Input::get('name');
+		if($member->save())
+			return Redirect::route('members.index');
+		return Redirect::back()->withInput();
 	}
 
 	/**
@@ -60,7 +65,9 @@ class MembersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('members.edit');
+		$member = Member::findOrFail($id);
+
+		return View::make('members.edit', ['member' => $member]);
 	}
 
 	/**
@@ -72,7 +79,12 @@ class MembersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		// @TODO add validation
+		$member = Member::findOrFail($id);
+		$member->name = Input::get('name', $member->name);
+		if($member->save())
+			return Redirect::route('members.show', ['id' => $id]);
+		return Redirect::back()->withInput();
 	}
 
 	/**
@@ -84,7 +96,11 @@ class MembersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$member = Member::findOrFail($id);
+		if($member->delete()) {
+			return Redirect::route('members.index');
+		}
+		return Redirect::back();
 	}
 
 }

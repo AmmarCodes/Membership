@@ -3,7 +3,7 @@
 @section('content')
 
 <ol class="breadcrumb">
-	<li>{{ link_to_action('MembersController@index', 'Members') }}</li>
+	<li>{{ link_to_route('members.index', 'Members') }}</li>
 	<li>View</li>
 </ol>
 
