@@ -1,0 +1,1 @@
+/vagrant/laravel/app/views/members/index.blade.php

@@ -15,6 +15,8 @@ Route::group(['before' => 'auth'], function() {
 	Route::get('/', function() {
 		return View::make('hello');
 	});
+
+	Route::resource('members', 'MembersController');
 });
 
 
