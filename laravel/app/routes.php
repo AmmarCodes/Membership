@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['before' => ''], function() {
+Route::group(['before' => 'auth'], function() {
 	Route::get('/', function() {
 		return View::make('hello');
 	});
@@ -20,10 +20,10 @@ Route::group(['before' => ''], function() {
 
 
 // Confide routes
-// Route::group(['before' => 'auth'], function() {
+Route::group(['before' => 'auth'], function() {
 	Route::get('users/create', 'UsersController@create');
 	Route::post('users', 'UsersController@store');
-// });
+});
 Route::get('users/login', 'UsersController@login');
 Route::post('users/login', 'UsersController@doLogin');
 Route::get('users/confirm/{code}', 'UsersController@confirm');
