@@ -10,7 +10,10 @@ class MembersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$members = Member::paginate(Config::get('custom.per_page', 10));
+		$item_counter = Config::get('custom.per_page', 10) * ($members->getCurrentPage() - 1);
+
+		return View::make('members.index', ['members' => $members, 'item_counter' => $item_counter]);
 	}
 
 	/**
@@ -21,7 +24,7 @@ class MembersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('members.create');
 	}
 
 	/**
@@ -44,7 +47,8 @@ class MembersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$member = Member::findOrFail($id);
+		return View::make('members.show', ['member' => $member]);
 	}
 
 	/**
@@ -56,7 +60,7 @@ class MembersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('members.edit');
 	}
 
 	/**

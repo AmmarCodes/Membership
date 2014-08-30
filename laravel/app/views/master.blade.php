@@ -8,6 +8,7 @@
 	@yield('meta')
 
 	{{ HTML::style('/assets/css/main.css') }}
+	{{ HTML::style('/assets/css/font-awesome.min.css') }}
 
 	@yield('header')
 
