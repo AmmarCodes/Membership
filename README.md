@@ -11,6 +11,10 @@ Membership Management System using Laravel framework. for learning purposes.
 - Each member should pay fees.
 - Administrator should be able to see which members doesn't pay the fees after their package recurring. 
 
+## Todos
+
+- Create an easy breadcrumb package, current onces are kind of complicated; new package to be used within controllers.
+
 ## Dependencies
 
 ### PHP
